@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hindustani Concert Planner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Hindustani Concert Planner</p>
+        <h1>Balance lighter and heavier pieces with your own repertoire.</h1>
+        <p class="subhead">
+          Add your ragas, folk/devotional songs, and semi-classical pieces with
+          tags, then generate a balanced concert flow that blends gayaki and
+          instrumental styles.
+        </p>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h2>Add a piece</h2>
+        <form id="piece-form">
+          <label>
+            Name
+            <input type="text" name="name" placeholder="e.g., Yaman" required />
+          </label>
+          <label>
+            Category
+            <select name="category" required>
+              <option value="raga">Raga</option>
+              <option value="folk">Folk</option>
+              <option value="devotional">Devotional</option>
+              <option value="semi-classical">Semi-classical</option>
+            </select>
+          </label>
+          <label>
+            Weight
+            <select name="weight" required>
+              <option value="light">Light</option>
+              <option value="heavy">Heavy</option>
+              <option value="neutral">Neutral</option>
+            </select>
+          </label>
+          <label>
+            Style
+            <select name="style" required>
+              <option value="vocal (gayaki)">Vocal / Gayaki</option>
+              <option value="instrumental">Instrumental</option>
+              <option value="both">Both</option>
+            </select>
+          </label>
+          <label>
+            Notes
+            <textarea
+              name="notes"
+              rows="3"
+              placeholder="Optional: taal, composer, highlight ideas"
+            ></textarea>
+          </label>
+          <button type="submit">Add piece</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Your repertoire</h2>
+          <button id="clear" class="ghost">Clear all</button>
+        </div>
+        <div id="piece-list" class="list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Balanced set suggestion</h2>
+          <button id="generate" class="ghost">Generate set</button>
+        </div>
+        <p class="hint">
+          The generator tries to pair light and heavy pieces, and ensures you
+          have a mix of vocal/gayaki, instrumental, and semi-classical or
+          devotional items when available.
+        </p>
+        <ol id="setlist" class="setlist"></ol>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Tip: You can add multiple pieces with the same raga but different styles
+        if you want to compare vocal and instrumental options.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
